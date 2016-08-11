@@ -35,6 +35,7 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
 
     private Context xContext;
     private int padding = 40;
+    private static final int sheepCount = 20;
     private int width, height, viewWidth, viewHeight;
     private Paint mapPaint;
     private Paint wolfPaint;
@@ -44,7 +45,7 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
     private Paint sheepTextPaint;
     private int fontHeight = 0;
     private Chess wolf;
-    private List<Chess> sheep = new ArrayList<>();
+    private Chess sheep[] = new Chess[sheepCount];
 
     private Coords[][] sCoordses = new Coords[5][5];
     private ChessType actionType = ChessType.WOLF;
@@ -159,35 +160,35 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
         sCoordses[4][4] = new Coords(new PointF(4 * widthGap + padding, 4 * heightGap + padding), StepDirection.UP, StepDirection.LEFT, StepDirection.UP_LEFT);
         {
             Coords lCoords = sCoordses[1][1];
-            lCoords.addChess(sheep.get(0));
-            lCoords.addChess(sheep.get(1));
-            lCoords.addChess(sheep.get(2));
-            lCoords.addChess(sheep.get(3));
-            lCoords.addChess(sheep.get(4));
+            lCoords.addChess(sheep[0]);
+            lCoords.addChess(sheep[1]);
+            lCoords.addChess(sheep[2]);
+            lCoords.addChess(sheep[3]);
+            lCoords.addChess(sheep[4]);
         }
         {
             Coords lCoords = sCoordses[3][1];
-            lCoords.addChess(sheep.get(5));
-            lCoords.addChess(sheep.get(6));
-            lCoords.addChess(sheep.get(7));
-            lCoords.addChess(sheep.get(8));
-            lCoords.addChess(sheep.get(9));
+            lCoords.addChess(sheep[5]);
+            lCoords.addChess(sheep[6]);
+            lCoords.addChess(sheep[7]);
+            lCoords.addChess(sheep[8]);
+            lCoords.addChess(sheep[9]);
         }
         {
             Coords lCoords = sCoordses[1][3];
-            lCoords.addChess(sheep.get(10));
-            lCoords.addChess(sheep.get(11));
-            lCoords.addChess(sheep.get(12));
-            lCoords.addChess(sheep.get(13));
-            lCoords.addChess(sheep.get(14));
+            lCoords.addChess(sheep[10]);
+            lCoords.addChess(sheep[11]);
+            lCoords.addChess(sheep[12]);
+            lCoords.addChess(sheep[13]);
+            lCoords.addChess(sheep[14]);
         }
         {
             Coords lCoords = sCoordses[3][3];
-            lCoords.addChess(sheep.get(15));
-            lCoords.addChess(sheep.get(16));
-            lCoords.addChess(sheep.get(17));
-            lCoords.addChess(sheep.get(18));
-            lCoords.addChess(sheep.get(19));
+            lCoords.addChess(sheep[15]);
+            lCoords.addChess(sheep[16]);
+            lCoords.addChess(sheep[17]);
+            lCoords.addChess(sheep[18]);
+            lCoords.addChess(sheep[19]);
         }
         {
             Coords lCoords = sCoordses[2][2];
@@ -202,46 +203,29 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
     private void initSheep() {
         int widthGap = width / 8;
         int heightGap = height / 8;
-        sheep.clear();
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 2 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 2 * heightGap + padding+15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding+15, 2 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 2 * heightGap + padding-15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding-15, 2 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 3 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(widthGap + padding, 2 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(3 * widthGap + padding, 2 * heightGap + padding)));;
+        sheep[0]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 2 * heightGap + padding));
+        sheep[1]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 2 * heightGap + padding+15));
+        sheep[2]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding+15, 2 * heightGap + padding));
+        sheep[3]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 2 * heightGap + padding-15));
+        sheep[4]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding-15, 2 * heightGap + padding));
 
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 2 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 2 * heightGap + padding+15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding+15, 2 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 2 * heightGap + padding-15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding-15, 2 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 3 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(5 * widthGap + padding, 2 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(7 * widthGap + padding, 2 * heightGap + padding)));
+        sheep[5]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 2 * heightGap + padding));
+        sheep[6]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 2 * heightGap + padding+15));
+        sheep[7]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding+15, 2 * heightGap + padding));
+        sheep[8]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 2 * heightGap + padding-15));
+        sheep[9]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding-15, 2 * heightGap + padding));
 
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 6 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 6 * heightGap + padding+15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding+15, 6 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 6 * heightGap + padding-15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding-15, 6 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(widthGap + padding, 6 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(3 * widthGap + padding, 6 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 5 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 7 * heightGap + padding)));
+        sheep[10]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 6 * heightGap + padding));
+        sheep[11]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 6 * heightGap + padding+15));
+        sheep[12]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding+15, 6 * heightGap + padding));
+        sheep[13]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding, 6 * heightGap + padding-15));
+        sheep[14]=new Chess(ChessType.SHEEP, new PointF(2 * widthGap + padding-15, 6 * heightGap + padding));
 
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 6 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 6 * heightGap + padding+15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding+15, 6 * heightGap + padding)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 6 * heightGap + padding-15)));
-        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding-15, 6 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 5 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 7 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(5 * widthGap + padding, 6 * heightGap + padding)));
-//        sheep.add(new Chess(ChessType.SHEEP, new PointF(7 * widthGap + padding, 6 * heightGap + padding)));
+        sheep[15]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 6 * heightGap + padding));
+        sheep[16]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 6 * heightGap + padding+15));
+        sheep[17]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding+15, 6 * heightGap + padding));
+        sheep[18]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding, 6 * heightGap + padding-15));
+        sheep[19]=new Chess(ChessType.SHEEP, new PointF(6 * widthGap + padding-15, 6 * heightGap + padding));
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -333,8 +317,8 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
     }
 
     private void drawSheep(Canvas pCanvas) {
-        for (int i = sheep.size()-1; i >=0; i--) {
-            Chess shep = sheep.get(i);
+        for (int i = 19; i >=0; i--) {//倒序绘制
+            Chess shep = sheep[i];
             if (sheepSelectd == i) {
                 sheepPaint.setColor(Color.RED);
                 sheepTextPaint.setColor(Color.WHITE);
@@ -468,7 +452,7 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
                         if (lCoords.isHasChess()) {
                             break;
                         } else {
-                            Chess lChess = sheep.get(sheepSelectd);
+                            Chess lChess = sheep[sheepSelectd];
                             Point curPoint =  getChessPosition(lChess);
                             StepDirection lDirection = getDirection(curPoint, lPoint);
 
@@ -518,8 +502,8 @@ public class WolfAndSheepView extends View implements View.OnTouchListener {
     /**判断点击坐标是否在棋子（羊，狼只有一个，不用选中）上面*/
     private int getSheepSelectd(float x, float y) {
         int select = -1;
-        for (int i = 0; i < sheep.size(); i++) {
-            Chess lChess = sheep.get(i);
+        for (int i = 0; i < sheepCount; i++) {
+            Chess lChess = sheep[i];
             if(!lChess.isLive){
                 continue;
             }
