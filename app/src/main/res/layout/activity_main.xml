@@ -19,38 +19,53 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
             >
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:text="狼"
+                android:textColor="#fff"
+                android:textSize="18sp"
                 android:enabled="false"
+                android:background="@drawable/wolf_bg_selector"
+                android:layout_marginRight="8dp"
                 />
             <Button
                 android:id="@+id/wolf_reset"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="清盘"
+                android:text="清"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:background="@drawable/wolf_clear_bg_selector"
                 />
 
             <Button
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:id="@+id/wolf_first"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="先行"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:background="@drawable/step_first_bg_selector"
                 />
 
             <Button
                 android:id="@+id/wolf_giveup"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="认输"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:background="@drawable/give_up_bg_selector"
                 />
         </LinearLayout>
     </RelativeLayout>
@@ -71,30 +86,42 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
             android:orientation="horizontal"
             >
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:text="羊"
+                android:textColor="#222"
+                android:textSize="18dp"
                 android:enabled="false"
+                android:background="@drawable/sheep_bg_selector"
+                android:layout_marginRight="8dp"
                 />
             <Button
                 android:id="@+id/sheep_reset"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="清盘"
+                android:text="清"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:background="@drawable/wolf_clear_bg_selector"
                 />
 
             <Button
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:id="@+id/sheep_first"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="先行"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:background="@drawable/step_first_bg_selector"
                 />
 
             <Button
@@ -102,7 +129,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="羊认输"
+                android:text="认输"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:background="@drawable/give_up_bg_selector"
                 />
         </LinearLayout>
     </RelativeLayout>
